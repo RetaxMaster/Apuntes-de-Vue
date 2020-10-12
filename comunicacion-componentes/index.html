@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Curso Basico de Vue.js | Platzi</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <!-- Siempre se trabaja dentro del div con id app (El especificado en Vue) para estar dentro del Scope de la aplicación del Vue -->
+    <div id="app" v-bind:style="{ background: '#' + color }">
+
+        <!-- La forma de pasarle las propiedades es a través de sus atributos que imprimern dentro el valor del componente padre, vue parsea de camel case a kebab case, por lo que odemos usarlo sin problemas de esta formad entro de HTML para mantener la consistencia del lenguaje -->
+        <coin-detail v-bind:coin="btc"></coin-detail>
+
+        
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
