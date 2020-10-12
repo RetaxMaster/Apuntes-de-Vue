@@ -12,10 +12,16 @@
     <!-- Siempre se trabaja dentro del div con id app (El especificado en Vue) para estar dentro del Scope de la aplicación del Vue -->
     <div id="app" v-bind:style="{ background: '#' + color }">
 
-        <!-- La forma de pasarle las propiedades es a través de sus atributos que imprimern dentro el valor del componente padre, vue parsea de camel case a kebab case, por lo que odemos usarlo sin problemas de esta formad entro de HTML para mantener la consistencia del lenguaje -->
-        <coin-detail v-bind:coin="btc"></coin-detail>
+        <!-- La forma de pasarle las propiedades es a través de sus atributos que imprimern dentro el valor del componente padre, vue parsea de camel case a kebab case, por lo que podemos usarlo sin problemas de esta formad entro de HTML para mantener la consistencia del lenguaje, con v-on podemos escuchar los eventos enviados por $emit -->
+        <coin-detail v-on:change-color="updateColor" v-bind:coin="btc"></coin-detail>
 
-        
+        <!-- Podemos repetir el componente cuantas veces queramos -->
+        <coin-detail v-on:change-color="updateColor" v-bind:coin="btc"></coin-detail>
+        <coin-detail v-on:change-color="updateColor" v-bind:coin="btc"></coin-detail>
+        <coin-detail v-on:change-color="updateColor" v-bind:coin="btc"></coin-detail>
+        <coin-detail v-on:change-color="updateColor" v-bind:coin="btc"></coin-detail>
+        <coin-detail v-on:change-color="updateColor" v-bind:coin="btc"></coin-detail>
+        <coin-detail v-on:change-color="updateColor" v-bind:coin="btc"></coin-detail>
 
     </div>
 

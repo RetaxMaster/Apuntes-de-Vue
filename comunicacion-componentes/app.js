@@ -1,4 +1,7 @@
-// Los componentes de Vue debem tener un único padre
+// Los componentes de Vue deben tener un único padre
+
+// Para que el componente padre se comunique con hijos, se hace a través de propiedades, para que los hijos se comuniquen con los padres se hace a través de eventos, así mantenemos la consistencia de Vue
+
 Vue.component('CoinDetail', {
 
     // props define cuáles son las propiedades que el componente padre le va a enviar al componente hijo, tienen la misma funcionalidad que las propiedades de data, solo que estás son las que setea el componente padre, por lo que el componente hijo no puede modificar el valor de estas propiedades, es decir, son read-only
@@ -20,6 +23,9 @@ Vue.component('CoinDetail', {
         toggleShowPrices() {
 
             this.showPrices = !this.showPrices;
+            
+            // $emit pertenece a VueJS, con esto le indicamos que cada ves que nuestro showPrices cambie, emita el evento "change-color", podemos dejar únicamente el nombre de la función o también podemos definir un valor que acompañe a ese evento
+            this.$emit("change-color", this.showPrices ? "ff96c8" : "3d3d3d");
 
         }
 
@@ -117,20 +123,17 @@ new Vue({
     },
 
     // Las funciones que se pueden llamar dentro de la aplicación de Vue
-    /* methods: {
+    methods: {
 
         // Usando this se puede acceder a las propiedades que definimos en data
 
-        toggleShowPrices() {
+        updateColor(color) {
 
-            this.showPrices = !this.showPrices;
-
-            this.color = this.color.split("").reverse().join("");
-
+            this.color = color || this.color.split("").reverse().join("");
 
         }
 
-    } */
+    }
 
 
 
