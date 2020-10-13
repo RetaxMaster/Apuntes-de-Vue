@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica módulo 3</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div id="app">
+
+        <button v-on:click="toggleModal">Show Modal</button>
+        <modal v-on:close-modal="toggleModal" v-show="showModal" v-bind:title="title">
+            <template v-slot:body>
+                <p>TEXTO DEL MODAL :D!</p>
+            </template>
+        </modal>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
